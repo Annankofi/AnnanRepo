@@ -3,7 +3,6 @@ color 0a
 Title Push
 cls
 call timeData.bat
-call root.bat
 
 if %1==setting start adb shell am start -n com.android.settings/com.android.settings.Settings
 if %1==yealinkSetting adb shell am start -n com.yealink.setting/com.yealink.setting.SettingActivity

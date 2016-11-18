@@ -1,12 +1,6 @@
 ::do not set the same name with system such as  time
 :: use time2 instead
 @echo Off
-set TYPE_DATA=1
-set TYPE_DATA_FORMAT=2
-set TYPE_TIME=3
-set TYPE_TIME_FORMAT=4
-set TYPE_DATA_TIME=5
-
 set curDate=%date%
 ::2016/11/06 星期三
 set curTime=%time%
@@ -46,15 +40,12 @@ set curDataAndTime=%date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2%%time:
 ::if %1==%TYPE_TIME% (echo Time:%curTime%)
 ::if %1==%TYPE_DATA_TIME% (echo Time:%curDataAndTime%)
 
-::if %1==%TYPE_DATA% (echo Time:%curDate%
-::)else if %1==%TYPE_TIME% (echo Time:%curTime%
-::) else if %1==%TYPE_TIME_FORMAT% (echo Time:%curDateFormat%
-::)else if %1==%TYPE_TIME_FORMAT% (echo Time:%curTimeFormat%
-::)else if %1==%TYPE_DATA_TIME% (echo Time:%curDataAndTime%
-::)else if %1=="" echo Time:%curDate% 
-::) else (echo Time:%curDate%
-::)
+if "%1"=="" (echo Time:%curDate% %curTime%
+)else if "%1"=="1" (echo Time:%curDate%
+)else if "%1"=="2" (echo Time:%curTime%
+) else if "%1"=="3" (echo Time:%curDateFormat%
+)else if "%1"=="4" (echo Time:%curTimeFormat%
+)else if "%1"=="5" (echo Time:%curDataAndTime%
+) else (echo Time:%curDate% )
 ::这里呆参数否则最后䘝else出错
 ::pause>nul
-
-echo Time:%curTime%
