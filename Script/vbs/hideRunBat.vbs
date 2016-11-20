@@ -1,0 +1,1 @@
+CreateObject("WScript.Shell").Run "cmd /c E:/AnnanRepo/Script/cmd/CanDo.bat",0
