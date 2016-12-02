@@ -6,9 +6,9 @@ call timeData
 @echo off
 
 ::only the tip
-if "%1"==""     call :pushHelp && goto end
-if "%1"=="h"    call :pushHelp && goto end
-if "%1"=="help" call :pushHelp && goto end
+if "%1"==""     call :Help && goto end
+if "%1"=="h"    call :Help && goto end
+if "%1"=="help" call :Help && goto end
 
 setlocal enabledelayedexpansion
 
@@ -53,26 +53,23 @@ if "%1"=="libinputflinger"  set APP_TYPE=TYPE_SYS_LIB   &&  set APP_NAME=libinpu
 
 echo PROJECT_PATH:%PROJECT_PATH%
 echo APP_NAME:%APP_NAME%
-echo APP_NAME:%APP_TYPE%
+
 ::default push succ
-set PUSH_RESULT=1
-::if push error the PATH_RESULT will be set zero
-::|| set PUSH_RESULT=0
+::set PUSH_RESULT=1
 
 if %APP_TYPE%==TYPE_PHONE_APP (
   set RELEASE_PATH=%PROJECT_PATH%\%APP_NAME%\bin\%APP_NAME%-release.apk
   set TARGET_PATH=%PROJECT_PATH%\%APP_NAME%\bin\%APP_NAME%.apk
-  ::echo %TARGET_PATH% do not echo will error
-	if exist %RELEASE_PATH% ( 
-		if exist %TARGET_PATH% del %TARGET_PATH% 
-		echo deleted %TARGET_PATH%
+	if exist !RELEASE_PATH! ( 
+		if exist !TARGET_PATH! del %TARGET_PATH% 
+		echo deleted !TARGET_PATH!
 		call delay 1
-		rename %RELEASE_PATH% %APP_NAME%.apk 
+		rename !RELEASE_PATH! !APP_NAME!.apk 
 		call delay 1
-		echo renamed finished%
-   )
-   adb push %TARGET_PATH% /phone/app || set PUSH_RESULT=0
-  goto reboot
+		echo renamed finished
+    )
+	adb push !TARGET_PATH! /phone/app || set PUSH_RESULT=0
+  goto end
 )
 
 if %APP_TYPE%==TYPE_SYSTEM_APP (
@@ -138,7 +135,7 @@ if %APP_TYPE%==TYPE_SYS_LIB (
 
 
 ::::::::::::: help function :::::::::::::
-:pushHelp
+:Help
 echo    phone            Phone.apk 
 echo    cpphone          CPPhone.apk 
 echo    logic            LogicService.apk 
