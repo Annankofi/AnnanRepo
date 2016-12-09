@@ -1,4 +1,4 @@
-@Echo On
+@Echo Off
 ::adb wait-for-devices
 adb shell debuggerd seoff
 call delay 1

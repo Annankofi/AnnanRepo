@@ -46,6 +46,6 @@ if "%1"=="" (echo Time:%curDate% %curTime%
 ) else if "%1"=="3" (echo Time:%curDateFormat%
 )else if "%1"=="4" (echo Time:%curTimeFormat%
 )else if "%1"=="5" (echo Time:%curDataAndTime%
-) else (echo Time:%curDate% )
+) else (echo %curDate% )
 ::这里呆参数否则最后䘝else出错
 ::pause>nul

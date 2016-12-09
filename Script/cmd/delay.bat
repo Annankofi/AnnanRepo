@@ -1,4 +1,4 @@
-@Echo On
+@Echo Off
 call timeData
 if "%1"=="" set delayedTime=1
 if not "%1"=="" set /a delayedTime=%1-1

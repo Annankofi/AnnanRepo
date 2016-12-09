@@ -11,11 +11,11 @@
 #fi
 
 
-adb shell debuggerd seoff
-adb root
-adb shell remount
-adb shell mount -o remount,rw //phone
-adb shell mount -o remount,rw //system
+#adb shell debuggerd seoff
+#adb root
+#adb shell remount
+#adb shell mount -o remount,rw //phone
+#adb shell mount -o remount,rw //system
 #sleep 1s
 
 ########################################################################################
