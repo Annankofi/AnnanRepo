@@ -1,4 +1,4 @@
-@echo on
+@echo off
 ::color 0a
 Title Push
 cls
@@ -56,6 +56,7 @@ if "%1"=="mediaProvider" set APP_TYPE=TYPE_SYS_PRIV_APP   &&  set APP_NAME=Media
 ::system_jar
 if "%1"=="framework" set APP_TYPE=TYPE_FRAMEWORK_JAR   &&  set APP_NAME=framework
 if "%1"=="services" set APP_TYPE=TYPE_FRAMEWORK_JAR   &&  set APP_NAME=services
+if "%1"=="wifi-service" set APP_TYPE=TYPE_FRAMEWORK_JAR   &&  set APP_NAME=wifi-service
 
 
 ::system_lib
@@ -98,11 +99,13 @@ if %APP_TYPE%==TYPE_SYS_PRIV_APP (
   adb push !PATH_FULL! /system/priv-app/%APP_NAME% || set PUSH_RESULT=0
   goto reboot
 )
-echo hello
-echo on
+
+
 if %APP_TYPE%==TYPE_FRAMEWORK_JAR (
   set PATH_FULL=%SYSTEM_OUT_PATH%\system\framework\%APP_NAME%.jar
+  echo on
   adb push !PATH_FULL! /system/framework || set PUSH_RESULT=0
+  echo off
   goto reboot
 )
 
@@ -162,6 +165,7 @@ echo    mediaProvider    MediaProvider.apk
 echo.
 echo    framework        framework.jar 
 echo    services         services.jar 
+echo    wifi-service     wifi-service.jar 
 echo.
 echo    libinputflinger  libinputflinger.so
 
