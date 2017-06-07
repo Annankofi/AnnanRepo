@@ -1,2 +1,0 @@
-#anann run as or click AnnanDexClasses.bat
-d2j-dex2jar classes.dex

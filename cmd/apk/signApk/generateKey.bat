@@ -1,0 +1,1 @@
+keytool -genkey -v -keystore annankey  -alias annankey   -keyalg RSA -validity 20000 -storepass annankeypass    -dname CN=com.example.test,OU=Lenovo,O=Lenovo,L=xiamen,ST=FuJian,C=CN

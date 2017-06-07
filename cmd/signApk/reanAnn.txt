@@ -1,8 +1,0 @@
-本签名仅针对本地编译的
-1、拷贝两份到本目录
-	andorid/build/target/product/security/platform.pk8
-	andorid/build/target/product/security/platform.x509.pem
-2、拷贝要签名的apk到此目录
-3、修改脚本SignIt
-   java -jar signapk.jar platform.x509.pem platform.pk8 SystemUI.apk SystemUI_signed.apk
-4、双击SignIT.bat并将生成apk push到相应的目录即可
