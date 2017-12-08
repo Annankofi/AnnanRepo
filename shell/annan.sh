@@ -242,7 +242,7 @@ login(){
 		190514^yealink
 		;;
 	*)
-		ssh -l zhuan 10.3.1.100
+		ssh -l zhuan appws.yealink.com
 		yealink@2346
 		;;
 	esac

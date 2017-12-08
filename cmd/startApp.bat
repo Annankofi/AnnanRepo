@@ -11,3 +11,5 @@ if %1==usermode  adb shell am start -n com.yealink.setting/com.yealink.setting.u
 if %1==usbstorage   adb shell am start -n com.android.systemui/com.android.systemui.usb.UsbStorageActivity
 if %1==developmentSettings adb shell setprop debug.layout true && adb shell am start com.android.settings/.DevelopmentSettings
 
+#adb shell am start -n com.yealink.testmode/com.yealink.MainActivity
+
